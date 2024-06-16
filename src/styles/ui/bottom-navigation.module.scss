@@ -1,0 +1,28 @@
+.container {
+  min-height: 72px;
+  background-color: var(--colors__background);
+}
+.innerContainer {
+  display: flex;
+  position: fixed;
+  height: 72px;
+  justify-content: space-between;
+  padding: 0 27px;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+}
+.itemWrapper {
+  width: 80px;
+  text-align: center;
+  justify-content: center;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+.iconWrapper {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  border: 1px solid red;
+  margin-bottom: 8px;
+}
