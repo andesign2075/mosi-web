@@ -1,0 +1,22 @@
+$GRAY_WHITE: #ffffff;
+$GRAY_100: #fafafa;
+$GRAY_200: #f5f5f5;
+$GRAY_300: #e8e8e8;
+$GRAY_400: #dcdcdc;
+$GRAY_500: #bebebe;
+$GRAY_600: #919191;
+$GRAY_700: #737373;
+$GRAY_800: #414141;
+$GRAY_900: #121212;
+$GRAY_BALCK: #000000;
+
+$COLORS: (
+  GRAY: (
+    'text': rgb(6, 6, 6),
+    'back': whitesmoke,
+  ),
+  SEMENTIC: (
+    'PRIMARY': #ef2715,
+    'SECONDARY': #ffdbd8,
+  ),
+);

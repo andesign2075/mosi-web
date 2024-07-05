@@ -1,0 +1,17 @@
+@import '@/styles/ui/';
+
+.container {
+  height: 100vh;
+  padding-top: 32px;
+  background: linear-gradient(to bottom, $GRAY_900 40%, $GRAY_800 100%);
+}
+.inner__container {
+  padding: 0 16px;
+}
+.logo__section {
+  padding: 16px 0;
+}
+.title {
+  margin-top: 24px;
+  color: $GRAY_WHITE;
+}

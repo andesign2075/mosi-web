@@ -1,0 +1,16 @@
+@import '@/styles/ui/';
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  background-color: $GRAY_WHITE;
+  border: 1.39px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  > p {
+    margin-left: 8px;
+    color: #343a40;
+  }
+}

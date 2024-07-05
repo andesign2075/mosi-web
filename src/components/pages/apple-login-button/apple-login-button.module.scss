@@ -1,0 +1,16 @@
+@import '@/styles/ui/';
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  background-color: $GRAY_BALCK;
+  border-radius: 8px;
+  border: none;
+  > p {
+    margin-left: 8px;
+    color: $GRAY_WHITE;
+  }
+}

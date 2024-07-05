@@ -12,7 +12,8 @@ export const COLORS = {
     900: '#121212',
     BALCK: '#000000',
   },
-  PRIMARY: {
-    PRIMARY: '#1F67F3',
+  SEMENTIC: {
+    PRIMARY: '#EF2715',
+    SECONDARY: '#FFDBD8',
   },
 };
