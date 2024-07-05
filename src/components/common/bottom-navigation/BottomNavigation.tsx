@@ -1,6 +1,6 @@
 'use client';
 
-import { HomeIcon, MypageIcon, SmileIcon } from '@/assets/icons';
+import { FilmIcon, LogIcon, MypageIcon } from '@/assets/icons';
 
 import { COLORS } from '@/utils/theme';
 import Link from 'next/link';
@@ -11,12 +11,12 @@ import { usePathname } from 'next/navigation';
 const BOTTOM_TABS = [
   {
     label: '챌린지',
-    icon: HomeIcon,
+    icon: FilmIcon,
     href: '/home',
   },
   {
     label: '챌린지로그',
-    icon: SmileIcon,
+    icon: LogIcon,
     href: '/activity',
   },
   {
@@ -41,9 +41,9 @@ const BottomNavigation: React.FC = () => {
         {BOTTOM_TABS.map((ele) => (
           <Link key={ele.label} href={ele.href} className={styles.itemWrapper}>
             <div className={styles.iconWrapper}>
-              <ele.icon height={20} fill={pathname === ele.href ? COLORS.PRIMARY.PRIMARY : COLORS.GRAY[400]} />
+              <ele.icon height={24} fill={pathname === ele.href ? COLORS.SEMENTIC.PRIMARY : COLORS.GRAY[400]} />
             </div>
-            <p style={{ color: pathname === ele.href ? COLORS.PRIMARY.PRIMARY : COLORS.GRAY[400] }}>{ele.label}</p>
+            <p style={{ color: pathname === ele.href ? COLORS.SEMENTIC.PRIMARY : COLORS.GRAY[400] }}>{ele.label}</p>
           </Link>
         ))}
       </div>
