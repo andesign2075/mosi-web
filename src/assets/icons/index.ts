@@ -6,3 +6,5 @@ export { default as AppleIcon } from './AppleIcon';
 export { default as GoogleIcon } from './GoogleIcon';
 export { default as LogIcon } from './LogIcon';
 export { default as FilmIcon } from './FilmIcon';
+export { default as CalendarIcon } from './CalendarIcon';
+export { default as UserIcon } from './UserIcon';
