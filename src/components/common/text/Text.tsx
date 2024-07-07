@@ -23,7 +23,7 @@ const Heading: React.FC<
     }
   }, []);
   return (
-    <p className={className} {...props}>
+    <p {...props} className={`${className} ${props.className}`}>
       {children}
     </p>
   );
@@ -51,7 +51,7 @@ const Title: React.FC<
   }, []);
 
   return (
-    <p className={className} {...props}>
+    <p {...props} className={`${className} ${props.className}`}>
       {children}
     </p>
   );
@@ -81,7 +81,7 @@ const Body: React.FC<
   }, []);
 
   return (
-    <p className={className} {...props}>
+    <p {...props} className={`${className} ${props.className}`}>
       {children}
     </p>
   );
