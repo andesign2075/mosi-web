@@ -1,0 +1,65 @@
+@import '@/styles/ui/';
+
+.container {
+  padding: 16px;
+  background-color: #2e2e2e;
+  border-radius: 8px;
+}
+.inner__container {
+  display: flex;
+  gap: 12px;
+}
+.image {
+  border-radius: 8px;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 6.5px;
+  background-color: $SEMENTIC_PRIMARY;
+  border-radius: 4px;
+  color: $GRAY_WHITE;
+}
+.title {
+  color: $GRAY_WHITE;
+  margin: 8px 0;
+}
+.info__wrapper {
+  display: flex;
+  gap: 8px;
+}
+.info__badge {
+  padding: 4px 12px;
+  color: $GRAY_300;
+  border: 1px solid $GRAY_300;
+  border-radius: 50px;
+}
+.date {
+  display: flex;
+  align-items: center;
+  color: $GRAY_300;
+  margin-top: 8px;
+  > p {
+    margin-left: 4px;
+  }
+}
+.join__count__badge__container {
+  display: inline-block;
+  margin-top: 34px;
+}
+.join__count__badge {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: $GRAY_400;
+  color: $GRAY_BALCK;
+  border-radius: 4px;
+}
+.button {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 12px;
+  border-radius: 8px;
+  background-color: $SEMENTIC_PRIMARY;
+  color: $GRAY_WHITE;
+  justify-content: center;
+}
