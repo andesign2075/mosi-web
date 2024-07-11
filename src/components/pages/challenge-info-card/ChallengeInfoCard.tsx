@@ -1,6 +1,6 @@
 import { CalendarIcon, UserIcon } from '@/assets/icons';
 
-import { COLORS } from '@/utils/theme';
+import COLORS from '@/styles/ui/_theme.module.scss';
 import Image from 'next/image';
 import React from 'react';
 import { Text } from '@/components/common';
@@ -34,12 +34,12 @@ const ChallengeInfoCard: React.FC = () => {
             </Text.Body>
           </div>
           <div className={styles.date}>
-            <CalendarIcon fill={COLORS.GRAY[300]} />
+            <CalendarIcon fill={COLORS.GRAY_300} />
             <Text.Body variant={12}>6.17(월) ~ 6.30(일)</Text.Body>
           </div>
           <div className={styles.join__count__badge__container}>
             <div className={styles.join__count__badge}>
-              <UserIcon fill={COLORS.GRAY[800]} />
+              <UserIcon fill={COLORS.GRAY_800} />
               <Text.Title variant={14}>324명 참가중</Text.Title>
             </div>
           </div>

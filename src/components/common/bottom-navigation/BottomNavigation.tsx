@@ -2,7 +2,7 @@
 
 import { FilmIcon, LogIcon, MypageIcon } from '@/assets/icons';
 
-import { COLORS } from '@/utils/theme';
+import COLORS from '@/styles/ui/_theme.module.scss';
 import Link from 'next/link';
 import React from 'react';
 import styles from './bottom-navigation.module.scss';
@@ -41,9 +41,9 @@ const BottomNavigation: React.FC = () => {
         {BOTTOM_TABS.map((ele) => (
           <Link key={ele.label} href={ele.href} className={styles.itemWrapper}>
             <div className={styles.iconWrapper}>
-              <ele.icon height={24} fill={pathname === ele.href ? COLORS.SEMENTIC.PRIMARY : COLORS.GRAY[400]} />
+              <ele.icon height={24} fill={pathname === ele.href ? COLORS.SEMENTIC_PRIMARY : COLORS.GRAY_400} />
             </div>
-            <p style={{ color: pathname === ele.href ? COLORS.SEMENTIC.PRIMARY : COLORS.GRAY[400] }}>{ele.label}</p>
+            <p style={{ color: pathname === ele.href ? COLORS.SEMENTIC_PRIMARY : COLORS.GRAY_400 }}>{ele.label}</p>
           </Link>
         ))}
       </div>
