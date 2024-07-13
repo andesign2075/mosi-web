@@ -1,7 +1,7 @@
-import { CalendarIcon, UserIcon } from '@/assets/icons';
-
 import COLORS from '@/styles/ui/_theme.module.scss';
+import { CalendarIcon } from '@/assets/icons';
 import Image from 'next/image';
+import JoinedCountBadge from '../joined-count-badge/JoinedCountBadge';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-info-card.module.scss';
@@ -37,12 +37,7 @@ const ChallengeInfoCard: React.FC = () => {
             <CalendarIcon fill={COLORS.GRAY_300} />
             <Text.Body variant={12}>6.17(월) ~ 6.30(일)</Text.Body>
           </div>
-          <div className={styles.join__count__badge__container}>
-            <div className={styles.join__count__badge}>
-              <UserIcon fill={COLORS.GRAY_800} />
-              <Text.Title variant={14}>324명 참가중</Text.Title>
-            </div>
-          </div>
+          <JoinedCountBadge count={23} />
         </div>
       </div>
       <button className={styles.button}>
