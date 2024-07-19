@@ -8,3 +8,4 @@ export { default as LogIcon } from './LogIcon';
 export { default as FilmIcon } from './FilmIcon';
 export { default as CalendarIcon } from './CalendarIcon';
 export { default as UserIcon } from './UserIcon';
+export { default as AngleIcon } from './AngleIcon';

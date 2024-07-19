@@ -1,0 +1,15 @@
+.container {
+  background-color: #414141;
+  opacity: 60%;
+  border-radius: 4px;
+  display: flex;
+  padding: 8px 10px;
+  background: rgba(65, 65, 65, 0.6);
+}
+.label {
+  margin-right: 14px;
+  color: #9c9c9c;
+}
+.value {
+  color: $GRAY_WHITE;
+}
