@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { JoinedCountBadge } from '@/components/pages';
 import { Text } from '@/components/common';
 import styles from './challenge.module.scss';
+import { useRouter } from 'next/navigation';
 
 const MOCK_DATA = {
   id: 1,
@@ -16,6 +17,7 @@ const MOCK_DATA = {
     'https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/8023576e-e8b4-43e9-8ddc-1dbfe2c29af2/nike-run-club-app.jpg',
 };
 const ChallengeDetailPage = () => {
+  const router = useRouter();
   const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
 
   return (
@@ -65,7 +67,7 @@ const ChallengeDetailPage = () => {
         {/* detail section */}
         <section className={styles.detail__section}>
           <div className={isDetailOpen ? styles.detail__open__container : styles.detail__container}>
-            {isDetailOpen ? <div className={styles.detail__img__gradient} /> : null}
+            {!isDetailOpen ? <div className={styles.detail__img__gradient} /> : null}
             <div className={styles.detail__img}>
               <Image fill src={MOCK_DATA.thumbnail} alt={'상세 이미지'} />
             </div>
@@ -91,7 +93,7 @@ const ChallengeDetailPage = () => {
         <div className={styles.divider} />
       </div>
       <div className={styles.cta__container}>
-        <button className={styles.cta__button}>
+        <button className={styles.cta__button} onClick={() => router.push(`/challenge-apply`)}>
           <Text.Title variant={16}>참가하기</Text.Title>
         </button>
       </div>

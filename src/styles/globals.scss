@@ -65,3 +65,9 @@ a {
     color-scheme: dark;
   }
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}

@@ -1,0 +1,145 @@
+.container {
+  padding-bottom: 100px;
+}
+.challenge__info__section {
+  display: flex;
+  padding: 24px 16px 0 16px;
+}
+.challenge__info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.thumbnail {
+  border-radius: 4px;
+}
+.info__wrapper {
+  display: flex;
+  gap: 8px;
+}
+.challenge__info__title {
+  margin: 8px 0;
+}
+.info__badge {
+  padding: 4px 12px;
+  color: $GRAY_800;
+  border: 1px solid $GRAY_800;
+  border-radius: 50px;
+}
+.date {
+  display: flex;
+  align-items: center;
+  color: $GRAY_800;
+  margin-top: 8px;
+  > p {
+    margin-left: 4px;
+  }
+}
+.divider {
+  margin: 24px 0;
+  background-color: $GRAY_200;
+  height: 8px;
+}
+
+// 도전금액 카드
+.price__info__section {
+  padding: 0 16px;
+}
+.price__card {
+  padding: 16px;
+  margin-top: 12px;
+  border: 1px solid $GRAY_400;
+  border-radius: 8px;
+}
+.price__card__title {
+  color: $GRAY_800;
+}
+.price__input__container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-bottom: 13px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $SEMENTIC_PRIMARY;
+  color: $GRAY_800;
+}
+.price__input {
+  text-align: end;
+  border: none;
+  color: $GRAY_800;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 150%;
+}
+.price__change__button {
+  padding: 4px 6px;
+  margin-left: 7.5px;
+  border-radius: 4px;
+  color: $SEMENTIC_PRIMARY;
+  background-color: #fef1f0;
+}
+.price__info__main__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $GRAY_800;
+  > p {
+    > small {
+      color: $GRAY_600;
+    }
+  }
+}
+.price__info__sub__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  color: $GRAY_600;
+}
+
+.pay__section {
+  padding: 0 16px;
+}
+.pay__info {
+  margin-top: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid $GRAY_400;
+}
+.pay__info__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.pay__info__sum__row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #d9d9d9;
+  padding-top: 12px;
+  color: $GRAY_800;
+}
+.pay__info__sum__value {
+  color: $SEMENTIC_PRIMARY;
+}
+
+// CTA button
+.cta__container {
+  position: fixed;
+  bottom: 0;
+  max-width: 480px;
+  width: 100%;
+  padding: 12px 16px 40px;
+  background-color: $GRAY_WHITE;
+  border-top: 1px solid $GRAY_200;
+
+  > button {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    background-color: $SEMENTIC_PRIMARY;
+    color: $GRAY_WHITE;
+  }
+}
