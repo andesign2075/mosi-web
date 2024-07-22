@@ -1,6 +1,6 @@
 'use client';
 
-import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@/components/pages';
+import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@/components/pages/auth';
 import React, { useCallback } from 'react';
 
 import { signIn } from 'next-auth/react';
