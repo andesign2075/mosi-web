@@ -1,0 +1,23 @@
+.divider {
+  background-color: $GRAY_200;
+  height: 8px;
+  margin: 24px 0;
+}
+.certify__section {
+  padding: 0 16px;
+}
+.certify__section__title__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.certify__history__button {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: $GRAY_200;
+  border-radius: 4px;
+  > p {
+    margin-left: 4px;
+  }
+}

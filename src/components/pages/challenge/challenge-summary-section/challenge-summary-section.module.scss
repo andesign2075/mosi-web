@@ -1,0 +1,40 @@
+.challenge__info__section {
+  display: flex;
+  padding: 24px 16px 0 16px;
+}
+.challenge__info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.thumbnail {
+  border-radius: 4px;
+}
+.info__wrapper {
+  display: flex;
+  gap: 8px;
+}
+.challenge__info__title {
+  margin: 8px 0;
+}
+.info__badge {
+  padding: 4px 12px;
+  color: $GRAY_800;
+  border: 1px solid $GRAY_800;
+  border-radius: 50px;
+}
+.date {
+  display: flex;
+  align-items: center;
+  color: $GRAY_800;
+  margin-top: 8px;
+  > p {
+    margin-left: 4px;
+  }
+}
+.divider {
+  margin: 24px 0;
+  background-color: $GRAY_200;
+  height: 8px;
+}

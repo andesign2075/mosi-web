@@ -5,6 +5,7 @@ import JoinedCountBadge from '../joined-count-badge/JoinedCountBadge';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-info-card.module.scss';
+import { useRouter } from 'next/navigation';
 
 const DUMMY_DATA = {
   image:
@@ -14,6 +15,8 @@ const DUMMY_DATA = {
 };
 
 const ChallengeInfoCard: React.FC = () => {
+  const router = useRouter();
+
   return (
     <section className={styles.container}>
       <div className={styles.inner__container}>
@@ -40,7 +43,7 @@ const ChallengeInfoCard: React.FC = () => {
           <JoinedCountBadge count={23} />
         </div>
       </div>
-      <button className={styles.button}>
+      <button className={styles.button} onClick={() => router.push('/certify/2')}>
         <Text.Title variant={16}>인증하기(1/14)</Text.Title>
       </button>
     </section>
