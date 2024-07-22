@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { AngleIcon } from '@/assets/icons';
 import ChallengeInfoRow from '@/components/pages/challenge/challenge-info-row/ChallengeInfoRow';
 import Image from 'next/image';
-import { JoinedCountBadge } from '@/components/pages';
+import { JoinedCountBadge } from '@/components/pages/challenge';
 import { Text } from '@/components/common';
 import styles from './challenge.module.scss';
 import { useRouter } from 'next/navigation';

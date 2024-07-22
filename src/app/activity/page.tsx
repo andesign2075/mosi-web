@@ -1,10 +1,9 @@
 'use client';
 
 import { BottomNavigation, Text } from '@/components/common';
+import { CompletedChallengeTemplate, ProceedingChallengeTemplate } from '@/components/pages/challenge';
 import React, { useState } from 'react';
 
-import CompletedChallengeTemplate from '@/components/pages/completed-challenge-template/CompletedChallengeTemplate';
-import ProceedingChallengeTemplate from '@/components/pages/proceeding-challenge-template/ProceedingChallengeTemplate';
 import styles from './activity.module.scss';
 
 const ActivityPage: React.FC = () => {
