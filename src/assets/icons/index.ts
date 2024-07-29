@@ -11,3 +11,4 @@ export { default as UserIcon } from './UserIcon';
 export { default as AngleIcon } from './AngleIcon';
 export { default as CheckCircleIcon } from './CheckCircleIcon';
 export { default as PlusCircleIcon } from './PlusCircleIcon';
+export { default as HeartIcon } from './HeartIcon';
