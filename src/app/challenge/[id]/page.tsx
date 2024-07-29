@@ -1,12 +1,13 @@
 'use client';
 
+import { AngleIcon, EllipsisVerticalIcon } from '@/assets/icons';
+import { Header, Text } from '@/components/common';
 import React, { useState } from 'react';
 
-import { AngleIcon } from '@/assets/icons';
+import COLORS from '@/styles/ui/_theme.module.scss';
 import ChallengeInfoRow from '@/components/pages/challenge/challenge-info-row/ChallengeInfoRow';
 import Image from 'next/image';
 import { JoinedCountBadge } from '@/components/pages/challenge';
-import { Text } from '@/components/common';
 import styles from './challenge.module.scss';
 import { useRouter } from 'next/navigation';
 
@@ -22,6 +23,14 @@ const ChallengeDetailPage = () => {
 
   return (
     <>
+      <Header
+        circleBackButton
+        headerRight={
+          <button>
+            <EllipsisVerticalIcon fill={COLORS.GRAY_WHITE} />
+          </button>
+        }
+      />
       <div className={styles.container}>
         <div className={styles.thumbnail__wrapper}>
           <Image width={0} height={0} sizes="100vw" className={styles.thumbnail} src={MOCK_DATA.thumbnail} alt={''} />

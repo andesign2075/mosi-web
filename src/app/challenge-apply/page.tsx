@@ -1,12 +1,14 @@
+import { Header, Text } from '@/components/common';
+
 import ChallengeSummarySection from '@/components/pages/challenge/challenge-summary-section/ChallengeSummarySection';
 import { NextPage } from 'next';
 import React from 'react';
-import { Text } from '@/components/common';
 import styles from './challenge-apply.module.scss';
 
 const page: NextPage = () => {
   return (
     <>
+      <Header variant="light" headerTitle="참가하기" />
       <div className={styles.container}>
         <ChallengeSummarySection />
         <div className={styles.divider} />

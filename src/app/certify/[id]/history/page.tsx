@@ -2,12 +2,12 @@
 
 import 'react-calendar/dist/Calendar.css';
 
+import { Header, Text } from '@/components/common';
 import React, { useState } from 'react';
 
 import Calendar from 'react-calendar';
 import { CertifyCard } from '@/components/pages/challenge';
 import { NextPage } from 'next';
-import { Text } from '@/components/common';
 import dayjs from 'dayjs';
 import styles from './certify-detail-history.module.scss';
 
@@ -25,61 +25,64 @@ const CertifyDetailHistory: NextPage = () => {
 
   const [value] = useState(dayjs().format());
   return (
-    <div className={styles.container}>
-      <section>
-        <div className={styles.title__container}>
-          <Text.Title variant={16}>진행률</Text.Title>
-          <Text.Title variant={24} className={styles.progress}>
-            20%
-          </Text.Title>
-        </div>
-        <div className={styles.progress__container}>
-          <div className={styles.progress__inner_container} style={{ width: `${MOCK_DATA.progress}%` }} />
-        </div>
-        <div className={styles.info__container}>
-          <div>
-            <Text.Body variant={18}>내 인증 회수</Text.Body>
-            <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
+    <>
+      <Header variant="light" headerTitle="인증현황" />
+      <div className={styles.container}>
+        <section>
+          <div className={styles.title__container}>
+            <Text.Title variant={16}>진행률</Text.Title>
+            <Text.Title variant={24} className={styles.progress}>
+              20%
+            </Text.Title>
+          </div>
+          <div className={styles.progress__container}>
+            <div className={styles.progress__inner_container} style={{ width: `${MOCK_DATA.progress}%` }} />
+          </div>
+          <div className={styles.info__container}>
+            <div>
+              <Text.Body variant={18}>내 인증 회수</Text.Body>
+              <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
+            </div>
+            <div>
+              <Text.Body variant={18}>실패 회수</Text.Body>
+              <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
+            </div>
+            <div>
+              <Text.Body variant={18}>내 인증 회수</Text.Body>
+              <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
+            </div>
           </div>
           <div>
-            <Text.Body variant={18}>실패 회수</Text.Body>
-            <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
+            <Calendar
+              locale="ko"
+              formatDay={(_locale, date) => dayjs(date).format('D')}
+              allowPartialRange={false}
+              value={value}
+              calendarType="gregory"
+              showNeighboringMonth={false}
+              next2Label={null} // +1년 & +10년 이동 버튼 숨기기
+              prev2Label={null} // -1년 & -10년 이동 버튼 숨기기
+              onClickYear={() => null}
+              tileClassName={({ date }) => {
+                if (
+                  dayjs(date).isBetween(
+                    dayjs(MOCK_DATA.startDate).format(),
+                    dayjs(MOCK_DATA.endDate).format(),
+                    undefined,
+                    '[]',
+                  )
+                ) {
+                  return 'calendar__range';
+                }
+              }}
+            />
           </div>
-          <div>
-            <Text.Body variant={18}>내 인증 회수</Text.Body>
-            <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
-          </div>
-        </div>
-        <div>
-          <Calendar
-            locale="ko"
-            formatDay={(_locale, date) => dayjs(date).format('D')}
-            allowPartialRange={false}
-            value={value}
-            calendarType="gregory"
-            showNeighboringMonth={false}
-            next2Label={null} // +1년 & +10년 이동 버튼 숨기기
-            prev2Label={null} // -1년 & -10년 이동 버튼 숨기기
-            onClickYear={() => null}
-            tileClassName={({ date }) => {
-              if (
-                dayjs(date).isBetween(
-                  dayjs(MOCK_DATA.startDate).format(),
-                  dayjs(MOCK_DATA.endDate).format(),
-                  undefined,
-                  '[]',
-                )
-              ) {
-                return 'calendar__range';
-              }
-            }}
-          />
-        </div>
-      </section>
-      <section className={styles.certify__card__section}>
-        <CertifyCard />
-      </section>
-    </div>
+        </section>
+        <section className={styles.certify__card__section}>
+          <CertifyCard />
+        </section>
+      </div>
+    </>
   );
 };
 

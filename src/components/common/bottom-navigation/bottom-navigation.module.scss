@@ -1,6 +1,5 @@
 .container {
   min-height: 72px;
-  background-color: var(--colors__background);
 }
 .innerContainer {
   display: flex;
@@ -11,6 +10,7 @@
   bottom: 0;
   width: 100%;
   max-width: 480px;
+  background-color: $GRAY_900;
 }
 .itemWrapper {
   width: 80px;
