@@ -1,0 +1,44 @@
+.container {
+  background-color: $GRAY_900;
+  min-height: 100vh;
+  padding: 0 16px;
+  padding-top: 24px;
+}
+.challenge__info__container {
+  display: flex;
+
+  padding: 14px 12px;
+  border: 1px solid $GRAY_600;
+  border-radius: 8px;
+}
+.challenge__info__img {
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.challenge__info__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.challenge__info__title {
+  color: $GRAY_300;
+}
+
+.review__section {
+  margin-top: 24px;
+}
+
+.review__section__label {
+  color: $GRAY_WHITE;
+  margin-bottom: 12px;
+}
+
+.review__list__container {
+  display: flex;
+}
+.review__list__inner__container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px;
+  margin: 0 auto;
+}

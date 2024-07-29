@@ -1,0 +1,38 @@
+.container {
+  display: inline-block;
+  position: relative;
+  box-shadow: -1.30064px 1.30064px 13.0064px 2.60127px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border-radius: 8px;
+}
+.challenge__info__img {
+  display: block;
+}
+.top__text__info {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: $GRAY_300;
+
+  > p {
+    margin-left: 2px;
+  }
+}
+.bottom__text__info {
+  position: absolute;
+  bottom: 0;
+  padding: 8px;
+  color: $GRAY_WHITE;
+  z-index: 10;
+}
+
+.rectangle {
+  position: absolute;
+  width: 168px;
+  height: 113px;
+  z-index: 0;
+  bottom: 0px;
+  background: linear-gradient(0deg, #000000 -5.32%, rgba(0, 0, 0, 0) 91.71%);
+}

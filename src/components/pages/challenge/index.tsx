@@ -5,3 +5,4 @@ export { default as ChallengeInfoRow } from './challenge-info-row/ChallengeInfoR
 export { default as ChallengeSummarySection } from './challenge-summary-section/ChallengeSummarySection';
 export { default as CompletedChallengeTemplate } from './completed-challenge-template/CompletedChallengeTemplate';
 export { default as ProceedingChallengeTemplate } from './proceeding-challenge-template/ProceedingChallengeTemplate';
+export { default as ChallengeReviewMiniCard } from './challenge-review-mini-card/ChallengeReviewMiniCard';

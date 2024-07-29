@@ -59,7 +59,7 @@ const ChallengeDetailPage = () => {
               alt={'참가자리뷰'}
             />
           </div>
-          <button className={styles.review__button}>
+          <button className={styles.review__button} onClick={() => router.push('/challenge-review')}>
             <Text.Title variant={16}>리뷰 2,234개 모두 보기</Text.Title>
           </button>
         </section>
