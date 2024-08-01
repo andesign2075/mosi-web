@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+}
+.profile__img {
+  border-radius: 52px;
+  border: 1px solid $GRAY_200;
+}
+.member__info__section {
+  display: flex;
+  align-items: center;
+  color: $GRAY_WHITE;
+  > p {
+    margin-left: 8px;
+  }
+}
+.context {
+  color: $GRAY_WHITE;
+  margin: 8px 0 12px;
+}
+.challeng__info__section {
+  display: flex;
+  padding: 12px;
+  border: 1px solid $GRAY_600;
+  border-radius: 8px;
+  color: $GRAY_300;
+  background: rgba(0, 0, 0, 0.6);
+}
+.challeng__info__img {
+  border-radius: 6px;
+  margin-right: 10px;
+}

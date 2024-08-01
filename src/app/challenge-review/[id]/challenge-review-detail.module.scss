@@ -1,0 +1,12 @@
+.container {
+  margin-top: 64px;
+  background-color: $GRAY_900;
+  max-width: 480px;
+}
+.image__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.thumbnail {
+  object-fit: cover;
+}

@@ -33,6 +33,7 @@
     "sass": "^1.77.5",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.9",
     "zustand": "^4.5.4"
   },
   "devDependencies": {

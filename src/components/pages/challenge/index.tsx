@@ -6,3 +6,5 @@ export { default as ChallengeSummarySection } from './challenge-summary-section/
 export { default as CompletedChallengeTemplate } from './completed-challenge-template/CompletedChallengeTemplate';
 export { default as ProceedingChallengeTemplate } from './proceeding-challenge-template/ProceedingChallengeTemplate';
 export { default as ChallengeReviewMiniCard } from './challenge-review-mini-card/ChallengeReviewMiniCard';
+export { default as ChallengeReviewBottomNavigation } from './challenge-review-bottom-navigation/ChallengeReviewBottomNavigation';
+export { default as ChallengeReviewSummaryInfo } from './challenge-review-summary-info/ChallengeReviewSummaryInfo';
