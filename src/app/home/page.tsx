@@ -2,11 +2,12 @@
 
 import { BottomNavigation, Text } from '@/components/common';
 import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Image from 'next/image';
-import Slider from 'react-slick';
 import styles from './home.module.scss';
 import { useRouter } from 'next/navigation';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 const MOCK_DATA = [
   {
@@ -29,17 +30,11 @@ const MOCK_DATA = [
 const HomePage: React.FC = () => {
   const router = useRouter();
   const [currentIdx, setCurrentIdx] = useState(0);
-  const settings = {
-    infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 500,
-    centerMode: true,
-    centerPadding: '16px',
-    arrows: false,
-    beforeChange: (current: number, next: number) => setCurrentIdx(next),
-  };
-  console.log(typeof window !== 'undefined' ? window.innerWidth * 0.87 : '2');
+  const windowSize = useWindowSize();
+
+  if (!windowSize) {
+    return <></>;
+  }
 
   return (
     <div className={styles.container}>
@@ -51,27 +46,30 @@ const HomePage: React.FC = () => {
           진행중인 챌린지
         </Text.Heading>
 
-        <div>
-          <Slider {...settings}>
-            {MOCK_DATA.map((ele, idx) => (
-              <div
-                key={ele.id}
-                className={styles.slider__wrapper}
-                style={{
-                  width: typeof window !== 'undefined' ? window.innerWidth * 0.87 + 'px' : '87%',
-                  aspectRatio: 327 / 520,
-                }}
-                onClick={() => router.push(`/challenge/${ele.id}`)}
-              >
-                <div
-                  className={`${styles.image__wrapper} ${currentIdx === idx ? styles.image__center : styles.image__side}`}
-                >
-                  <Image fill src={ele.thumbnail} alt={''} />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
+        <Swiper
+          direction="horizontal"
+          spaceBetween={-26}
+          slidesPerView={1}
+          className={`mySwiper ${styles.list__container}`}
+          style={{
+            height: `${windowSize.height * 0.63}px`,
+          }}
+          onActiveIndexChange={(swiperCore) => setCurrentIdx(swiperCore.activeIndex)}
+        >
+          {MOCK_DATA.map((ele, idx) => (
+            <SwiperSlide
+              key={idx}
+              style={{
+                width: `${windowSize?.width * 0.87}px`,
+                height: currentIdx === idx ? `${windowSize.height * 0.63}px` : `${windowSize.height * 0.56}px`,
+              }}
+              onClick={() => router.push(`/challenge/${ele.id}`)}
+              className={`${styles.image__wrapper} ${currentIdx === idx ? styles.image__center : styles.image__side}`}
+            >
+              <Image fill src={ele.thumbnail} alt={''} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
       <BottomNavigation />
     </div>
