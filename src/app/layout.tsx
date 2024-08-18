@@ -2,7 +2,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '@/styles/globals.scss';
 
-import AuthSession from '@/components/AuthSession';
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -37,9 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body className="root_container">
-        <AuthSession>
-          <div className="root_inner_container">{children}</div>
-        </AuthSession>
+        <div className="root_inner_container">{children}</div>
       </body>
     </html>
   );
