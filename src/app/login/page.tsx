@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
       // 로그인 요청
       window.Kakao.Auth.authorize({
         redirectUri: 'http://localhost:8080/oauth2/code/kakao',
-        scope: 'profile_nickname,profile_image,phone_number,account_email',
+        scope: 'name,profile_image,phone_number,account_email',
         prompt: 'select_account',
         throughTalk: true,
       });
