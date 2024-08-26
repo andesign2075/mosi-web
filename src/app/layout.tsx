@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="ko">
       <head>
         <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossOrigin="anonymous"></script>
-        <script>dayjs.extend(window.dayjs_plugin_isBetween)</script>
         <link rel="shortcut icon" href="#" />
         <link
           rel="preload"

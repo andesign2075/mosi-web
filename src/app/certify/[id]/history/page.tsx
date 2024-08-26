@@ -20,9 +20,6 @@ const MOCK_DATA = {
   endDate: '2024-07-28',
 };
 const CertifyDetailHistory: NextPage = () => {
-  const isBetween = require('dayjs/plugin/isBetween');
-  dayjs.extend(isBetween);
-
   const [value] = useState(dayjs().format());
   return (
     <>
@@ -65,12 +62,8 @@ const CertifyDetailHistory: NextPage = () => {
               onClickYear={() => null}
               tileClassName={({ date }) => {
                 if (
-                  dayjs(date).isBetween(
-                    dayjs(MOCK_DATA.startDate).format(),
-                    dayjs(MOCK_DATA.endDate).format(),
-                    undefined,
-                    '[]',
-                  )
+                  dayjs(MOCK_DATA.startDate).diff(dayjs(date), 'days') < 0 &&
+                  dayjs(MOCK_DATA.endDate).diff(dayjs(date), 'days') >= 0
                 ) {
                   return 'calendar__range';
                 }
