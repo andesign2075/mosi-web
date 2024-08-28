@@ -40,6 +40,7 @@
   letter-spacing: 0.2em !important;
   line-height: 150% !important;
   pointer-events: none !important;
+  color: #333333 !important;
 }
 
 .react-calendar__navigation__label {
@@ -73,6 +74,11 @@
 
 .react-calendar__viewContainer {
   pointer-events: none !important;
+}
+
+.react-calendar__month-view__days__day,
+.calendar__tile {
+  color: $GRAY_800 !important;
 }
 
 .react-calendar__month-view__days__day--weekend {

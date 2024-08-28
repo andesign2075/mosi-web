@@ -16,8 +16,8 @@ const MOCK_DATA = {
   certifyCount: 1,
   failCount: 3,
   remainCount: 10,
-  startDate: '2024-07-24',
-  endDate: '2024-07-28',
+  startDate: '2024-08-24',
+  endDate: '2024-08-30',
 };
 const CertifyDetailHistory: NextPage = () => {
   const [value] = useState(dayjs().format());
