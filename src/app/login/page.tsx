@@ -3,7 +3,6 @@
 import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@/components/pages/auth';
 import React, { useCallback } from 'react';
 
-import { signIn } from 'next-auth/react';
 import styles from './login.module.scss';
 
 const LoginPage: React.FC = () => {
@@ -15,7 +14,7 @@ const LoginPage: React.FC = () => {
       window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
       // 로그인 요청
       window.Kakao.Auth.authorize({
-        redirectUri: 'http://localhost:8080/oauth2/code/kakao',
+        redirectUri: `${process.env.NEXT_PUBLIC_API_URL}/oauth2/code/kakao`,
         scope: 'name,profile_image,phone_number,account_email',
         prompt: 'select_account',
         throughTalk: true,
@@ -24,7 +23,8 @@ const LoginPage: React.FC = () => {
   }, []);
 
   const onGoogleLogin = useCallback(() => {
-    signIn('google');
+    const url = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_API_URL}/login/oauth2/code/google&response_type=token&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile`;
+    window.location.href = url;
   }, []);
 
   const onAppleLogin = useCallback(() => {}, []);
