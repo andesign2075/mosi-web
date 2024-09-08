@@ -23,6 +23,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "@/styles/index.scss";`,
   },
+  reactStrictMode: false,
 };
 
 export default nextConfig;

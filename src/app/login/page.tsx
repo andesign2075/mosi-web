@@ -1,11 +1,19 @@
 'use client';
 
 import { AppleLoginButton, GoogleLoginButton, KakaoLoginButton } from '@/components/pages/auth';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
+import { NextPage } from 'next';
 import styles from './login.module.scss';
+import { useRouter } from 'next/navigation';
 
-const LoginPage: React.FC = () => {
+interface Props {
+  searchParams: {
+    token?: string;
+  };
+}
+const LoginPage: NextPage<Props> = ({ searchParams }) => {
+  const router = useRouter();
   const onKakaoLogin = useCallback(() => {
     // SDK는 한 번만 초기화
     // 중복되는 초기화를 막기 위해 isInitialized()로 SDK 초기화 여부를 판단
@@ -28,6 +36,13 @@ const LoginPage: React.FC = () => {
   }, []);
 
   const onAppleLogin = useCallback(() => {}, []);
+
+  useEffect(() => {
+    if (searchParams.token) {
+      localStorage.setItem('accessToken', searchParams.token);
+      router.replace('/home');
+    }
+  }, []);
 
   return (
     <div className={styles.button__container}>

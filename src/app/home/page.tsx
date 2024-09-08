@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Image from 'next/image';
 import styles from './home.module.scss';
+import { useGetChallenges } from '@/queries/challenge';
 import { useRouter } from 'next/navigation';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
@@ -31,6 +32,9 @@ const HomePage: React.FC = () => {
   const router = useRouter();
   const [currentIdx, setCurrentIdx] = useState(0);
   const windowSize = useWindowSize();
+
+  const { data } = useGetChallenges();
+  console.log(data);
 
   if (!windowSize) {
     return <></>;

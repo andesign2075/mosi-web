@@ -4,6 +4,7 @@ import '@/styles/globals.scss';
 
 import type { Metadata } from 'next';
 import React from 'react';
+import ReactQueryProviders from '@/utils/ReactQueryProviders';
 
 export const metadata: Metadata = {
   title: '모시',
@@ -34,8 +35,11 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
         />
       </head>
+
       <body className="root_container">
-        <div className="root_inner_container">{children}</div>
+        <div className="root_inner_container">
+          <ReactQueryProviders>{children}</ReactQueryProviders>
+        </div>
       </body>
     </html>
   );
