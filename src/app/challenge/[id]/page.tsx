@@ -8,18 +8,33 @@ import COLORS from '@/styles/ui/_theme.module.scss';
 import ChallengeInfoRow from '@/components/pages/challenge/challenge-info-row/ChallengeInfoRow';
 import Image from 'next/image';
 import { JoinedCountBadge } from '@/components/pages/challenge';
+import { NextPage } from 'next';
 import styles from './challenge.module.scss';
+import { useGetChallengeDetail } from '@/queries/challenge';
 import { useRouter } from 'next/navigation';
 
 const MOCK_DATA = {
-  id: 1,
-  title: '1만보 걷기',
   thumbnail:
     'https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/8023576e-e8b4-43e9-8ddc-1dbfe2c29af2/nike-run-club-app.jpg',
 };
-const ChallengeDetailPage = () => {
+
+interface Props {
+  params: {
+    id: string;
+  };
+}
+const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
   const router = useRouter();
   const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
+
+  const { data } = useGetChallengeDetail(params.id);
+
+  const detailData = data?.data[0];
+  console.log(detailData);
+
+  if (!detailData) {
+    return null;
+  }
 
   return (
     <>
@@ -35,7 +50,7 @@ const ChallengeDetailPage = () => {
         <div className={styles.thumbnail__wrapper}>
           <Image width={0} height={0} sizes="100vw" className={styles.thumbnail} src={MOCK_DATA.thumbnail} alt={''} />
           <Text.Title variant={24} className={styles.title}>
-            {MOCK_DATA.title}
+            {detailData.title}
           </Text.Title>
         </div>
         <section className={styles.info__section}>
@@ -44,9 +59,9 @@ const ChallengeDetailPage = () => {
           </Text.Title>
           <JoinedCountBadge count={12} />
           <div className={styles.info__row__wrapper}>
-            <ChallengeInfoRow label="조건" value="주1회" />
-            <ChallengeInfoRow label="기간" value="2주동안(시작일 기준)" />
-            <ChallengeInfoRow label="상금" value="2,000원 예상" />
+            <ChallengeInfoRow label="조건" value={`주${detailData.weeklyFrequency}회`} />
+            <ChallengeInfoRow label="기간" value={`${detailData.periodWeeks}주동안(시작일 기준)`} />
+            <ChallengeInfoRow label="상금" value={`${Number(detailData.prizeAmount).toLocaleString()}원 예상`} />
           </div>
         </section>
         <div className={styles.divider} />
@@ -91,13 +106,8 @@ const ChallengeDetailPage = () => {
         <div className={styles.divider} />
         {/* context */}
         <section className={styles.context__section}>
-          <Text.Title variant={18}>돈을 걸면 무조건 하게 됩니다.</Text.Title>
-          <Text.Body variant={16}>
-            나를 움직이는 강력한 알람, 돈! <br />
-            챌린지 시작 전 예치금을 걸어두세요. <br />
-            80% 이상만 성공해도 예치금을 그대로 돌려받을 수 있어요! 혼자만의 결심으로 하기 힘든 일이라면 돈을 걸고
-            챌린지를 시작해보세요
-          </Text.Body>
+          <Text.Title variant={18}>{detailData.title}</Text.Title>
+          <Text.Body variant={16}>{detailData.contents}</Text.Body>
         </section>
         <div className={styles.divider} />
       </div>
