@@ -1,16 +1,17 @@
 'use client';
 
 import { Header, Text } from '@/components/common';
+import { usePathname, useRouter } from 'next/navigation';
 
 import CertifyCard from '@/components/pages/challenge/certify-card/CertifyCard';
 import ChallengeSummarySection from '@/components/pages/challenge/challenge-summary-section/ChallengeSummarySection';
 import { CheckCircleIcon } from '@/assets/icons';
 import React from 'react';
 import styles from './certify-detail.module.scss';
-import { useRouter } from 'next/navigation';
 
 const CertifyDetail = () => {
   const router = useRouter();
+  const pathname = usePathname();
   return (
     <>
       <Header variant="light" headerTitle="인증하기" />
@@ -25,7 +26,7 @@ const CertifyDetail = () => {
               <Text.Title variant={14}>인증현황</Text.Title>
             </button>
           </div>
-          <CertifyCard />
+          <CertifyCard onClick={() => router.push(`${pathname}/register`)} />
         </section>
       </div>
     </>

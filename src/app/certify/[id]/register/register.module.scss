@@ -1,0 +1,90 @@
+.container {
+  padding-top: 64px;
+  background-color: $GRAY_900;
+  height: 100vh;
+}
+.inner_top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 12px solid #ededed;
+}
+.title {
+  margin: 24px 0;
+  text-align: center;
+  color: $GRAY_WHITE;
+}
+.selected_file_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 4px;
+  padding-bottom: 16px;
+}
+.selected_file {
+  width: 180px;
+  height: 256px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.modify_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: $GRAY_800;
+  border-radius: 50px;
+  cursor: pointer;
+  > p {
+    margin-left: 8px;
+  }
+}
+.unselected_file_section {
+  padding-bottom: 140px;
+}
+.file_add_button {
+  cursor: pointer;
+  display: flex;
+  margin: 0 auto;
+  width: 150px;
+  height: 210px;
+  border: 1px solid $GRAY_500;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.content__input {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.content_title {
+  width: 100%;
+  display: block;
+  padding: 16px;
+  color: #919191;
+  font-size: 18px;
+  font-weight: 600;
+}
+.content_desc {
+  width: 100%;
+  display: block;
+  padding: 16px;
+  color: #919191;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid #919191;
+}
+.isusing_review_section {
+  padding: 16px;
+}
+.isusing_review {
+  color: $GRAY_WHITE;
+}
+.isusing_review_desc {
+  color: #919191;
+}
