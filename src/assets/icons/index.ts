@@ -13,3 +13,4 @@ export { default as CheckCircleIcon } from './CheckCircleIcon';
 export { default as PlusCircleIcon } from './PlusCircleIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as EllipsisVerticalIcon } from './EllipsisVerticalIcon';
+export { default as FilledCircleIcon } from './FilledCircleIcon';
