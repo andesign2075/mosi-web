@@ -1,5 +1,5 @@
 import { ApiResponse } from '@/types/query';
-import { MyChallengeData } from '@/types/activity';
+import type { MyChallengeData } from '@/types/activity';
 import axiosInstance from '@/api/axiosInstance';
 import { buildQuery } from '@/utils/buildQuery';
 import { useQuery } from '@tanstack/react-query';
@@ -15,7 +15,7 @@ const getMyChallenges = async ({ status }: { status: Status }) => {
 
 const useGetMyChallenges = ({ status }: { status: Status }) => {
   return useQuery({
-    queryKey: ['GET_MY_CHALLENGES'],
+    queryKey: ['GET_MY_CHALLENGES', status],
     queryFn: async () => await getMyChallenges({ status }),
   });
 };

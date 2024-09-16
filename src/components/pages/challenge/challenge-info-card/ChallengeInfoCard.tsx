@@ -21,25 +21,28 @@ const ChallengeInfoCard: React.FC = () => {
     <section className={styles.container}>
       <div className={styles.inner__container}>
         <Image className={styles.image} src={DUMMY_DATA.image} width={135} height={205} alt="카드 이미지" />
-        <div>
-          <Text.Title variant={14} className={styles.badge}>
-            모시 공식
-          </Text.Title>
-          <Text.Title variant={24} className={styles.title}>
-            {DUMMY_DATA.title}
-          </Text.Title>
-          <div className={styles.info__wrapper}>
-            <Text.Body className={styles.info__badge} variant={14}>
-              주1회
-            </Text.Body>
-            <Text.Body className={styles.info__badge} variant={14}>
-              2주동안
-            </Text.Body>
+        <div className={styles.innter_right}>
+          <div>
+            <Text.Title variant={14} className={styles.badge}>
+              모시 공식
+            </Text.Title>
+            <Text.Title variant={24} className={styles.title}>
+              {DUMMY_DATA.title}
+            </Text.Title>
+            <div className={styles.info__wrapper}>
+              <Text.Body className={styles.info__badge} variant={14}>
+                주1회
+              </Text.Body>
+              <Text.Body className={styles.info__badge} variant={14}>
+                2주동안
+              </Text.Body>
+            </div>
+            <div className={styles.date}>
+              <CalendarIcon fill={COLORS.GRAY_300} />
+              <Text.Body variant={12}>6.17(월) ~ 6.30(일)</Text.Body>
+            </div>
           </div>
-          <div className={styles.date}>
-            <CalendarIcon fill={COLORS.GRAY_300} />
-            <Text.Body variant={12}>6.17(월) ~ 6.30(일)</Text.Body>
-          </div>
+
           <JoinedCountBadge count={23} />
         </div>
       </div>

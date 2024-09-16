@@ -5,13 +5,9 @@ import { CompletedChallengeTemplate, ProceedingChallengeTemplate } from '@/compo
 import React, { useState } from 'react';
 
 import styles from './activity.module.scss';
-import useGetMyChallenges from '@/queries/activity/useGetMyChallenges';
 
 const ActivityPage: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<'PROCEEDING' | 'COMPLETED'>('PROCEEDING');
-
-  const { data } = useGetMyChallenges({ status: 'ONGOING' });
-  console.log(data);
 
   return (
     <div className={styles.container}>
