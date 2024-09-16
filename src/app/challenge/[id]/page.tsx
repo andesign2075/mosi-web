@@ -111,7 +111,7 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
         <div className={styles.divider} />
       </div>
       <div className={styles.cta__container}>
-        <button className={styles.cta__button} onClick={() => router.push(`/challenge-apply`)}>
+        <button className={styles.cta__button} onClick={() => router.push(`/challenge-apply/${params.id}`)}>
           <Text.Title variant={16}>참가하기</Text.Title>
         </button>
       </div>

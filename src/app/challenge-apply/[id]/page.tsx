@@ -1,11 +1,23 @@
+'use client';
+
 import { Header, Text } from '@/components/common';
 
 import { ChallengeSummarySection } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import React from 'react';
 import styles from './challenge-apply.module.scss';
+import usePostApplyChallenge from '@/queries/activity/usePostApplyChallenge';
 
-const page: NextPage = () => {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+const ChallengeApply: NextPage<Props> = ({ params }) => {
+  const postApplyChallengeMutation = usePostApplyChallenge({
+    onSuccess: () => window.location.reload(),
+  });
+
   return (
     <>
       <Header variant="light" headerTitle="참가하기" />
@@ -71,7 +83,13 @@ const page: NextPage = () => {
         </section>
       </div>
       <div className={styles.cta__container}>
-        <button>
+        <button
+          onClick={() =>
+            postApplyChallengeMutation.mutate({
+              id: params.id,
+            })
+          }
+        >
           <Text.Title variant={16}>9,475원 충전하고 참가완료</Text.Title>
         </button>
       </div>
@@ -79,4 +97,4 @@ const page: NextPage = () => {
   );
 };
 
-export default page;
+export default ChallengeApply;
