@@ -1,4 +1,4 @@
-export { default as BottomNavigation } from './bottom-navigation/BottomNavigation';
-export { default as Text } from './text/Text';
-export { default as OfficialBadge } from './official-badge/OfficialBadge';
-export { default as Header } from './header/Header';
+export { default as BottomNavigation } from './BottomNavigation';
+export { default as Text } from './Text';
+export { default as OfficialBadge } from './OfficialBadge';
+export { default as Header } from './Header';

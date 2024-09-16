@@ -3,7 +3,7 @@
 import { AngleIcon } from '@/assets/icons';
 import COLORS from '@/styles/ui/_theme.module.scss';
 import React from 'react';
-import Text from '../text/Text';
+import Text from '../Text';
 import styles from './header.module.scss';
 import { useRouter } from 'next/navigation';
 

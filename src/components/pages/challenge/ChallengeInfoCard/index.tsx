@@ -1,7 +1,7 @@
 import COLORS from '@/styles/ui/_theme.module.scss';
 import { CalendarIcon } from '@/assets/icons';
 import Image from 'next/image';
-import JoinedCountBadge from '../joined-count-badge/JoinedCountBadge';
+import JoinedCountBadge from '../JoinedCountBadge';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-info-card.module.scss';

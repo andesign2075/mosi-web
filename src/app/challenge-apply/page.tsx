@@ -1,6 +1,6 @@
 import { Header, Text } from '@/components/common';
 
-import ChallengeSummarySection from '@/components/pages/challenge/challenge-summary-section/ChallengeSummarySection';
+import { ChallengeSummarySection } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import React from 'react';
 import styles from './challenge-apply.module.scss';

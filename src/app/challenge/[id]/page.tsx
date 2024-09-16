@@ -1,13 +1,12 @@
 'use client';
 
 import { AngleIcon, EllipsisVerticalIcon } from '@/assets/icons';
+import { ChallengeInfoRow, JoinedCountBadge } from '@/components/pages/challenge';
 import { Header, Text } from '@/components/common';
 import React, { useState } from 'react';
 
 import COLORS from '@/styles/ui/_theme.module.scss';
-import ChallengeInfoRow from '@/components/pages/challenge/challenge-info-row/ChallengeInfoRow';
 import Image from 'next/image';
-import { JoinedCountBadge } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import styles from './challenge.module.scss';
 import { useGetChallengeDetail } from '@/queries/challenge';

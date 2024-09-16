@@ -1,4 +1,4 @@
-import ChallengeInfoCard from '../challenge-info-card/ChallengeInfoCard';
+import ChallengeInfoCard from '../ChallengeInfoCard';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './completed-challenge-template.module.scss';

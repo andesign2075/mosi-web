@@ -1,10 +1,9 @@
 'use client';
 
+import { CertifyCard, ChallengeSummarySection } from '@/components/pages/challenge';
 import { Header, Text } from '@/components/common';
 import { usePathname, useRouter } from 'next/navigation';
 
-import CertifyCard from '@/components/pages/challenge/certify-card/CertifyCard';
-import ChallengeSummarySection from '@/components/pages/challenge/challenge-summary-section/ChallengeSummarySection';
 import { CheckCircleIcon } from '@/assets/icons';
 import React from 'react';
 import styles from './certify-detail.module.scss';

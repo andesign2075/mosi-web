@@ -3,7 +3,7 @@
 import { FilmIcon, LogIcon } from '@/assets/icons';
 
 import COLORS from '@/styles/ui/_theme.module.scss';
-import ChallengeSummarySection from '../challenge-summary-section/ChallengeSummarySection';
+import ChallengeSummarySection from '../ChallengeSummarySection';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-review-info-bottomsheet.module.scss';

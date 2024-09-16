@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import COLORS from '@/styles/ui/_theme.module.scss';
-import ChallengeReviewInfoBottomSheet from '@/components/pages/challenge/challenge-review-info-bottomsheet/ChallengeReviewInfoBottomSheet';
+import ChallengeReviewInfoBottomSheet from '@/components/pages/challenge/ChallengeReviewInfoBottomSheet';
 import { EllipsisVerticalIcon } from '@/assets/icons';
 import { Header } from '@/components/common';
 import Image from 'next/image';

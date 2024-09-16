@@ -72,7 +72,7 @@ const CertifyDetailHistory: NextPage = () => {
           </div>
         </section>
         <section className={styles.certify__card__section}>
-          <CertifyCard />
+          <CertifyCard onClick={() => null} />
         </section>
       </div>
     </>
