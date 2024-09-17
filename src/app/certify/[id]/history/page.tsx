@@ -10,6 +10,7 @@ import { CertifyCard } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import dayjs from 'dayjs';
 import styles from './certify-detail-history.module.scss';
+import useGetCertifyHistory from '@/queries/activity/useGetCertifyHistory';
 
 const MOCK_DATA = {
   progress: 20,
@@ -19,8 +20,18 @@ const MOCK_DATA = {
   startDate: '2024-08-24',
   endDate: '2024-08-30',
 };
-const CertifyDetailHistory: NextPage = () => {
+
+interface Props {
+  params: {
+    id: string;
+  };
+}
+const CertifyDetailHistory: NextPage<Props> = ({ params }) => {
   const [value] = useState(dayjs().format());
+
+  const { data } = useGetCertifyHistory({ challengeId: params.id });
+  console.log(data);
+
   return (
     <>
       <Header variant="light" headerTitle="인증현황" />
