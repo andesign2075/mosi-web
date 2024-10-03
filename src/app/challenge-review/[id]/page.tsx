@@ -31,7 +31,13 @@ const MOCK_DATA = [
   },
 ];
 
-const ChallengeReviewDetail: NextPage = () => {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+const ChallengeReviewDetail: NextPage<Props> = ({ params }) => {
   const windowSize = useWindowSize();
   const [currentBottomTab, setCurrentBottomTab] = useState<'CONTENT' | 'INFO'>();
 
@@ -74,7 +80,11 @@ const ChallengeReviewDetail: NextPage = () => {
         ))}
       </Swiper>
       {currentBottomTab ? (
-        <ChallengeReviewInfoBottomSheet currentSection={currentBottomTab} onClick={setCurrentBottomTab} />
+        <ChallengeReviewInfoBottomSheet
+          id={params.id}
+          currentSection={currentBottomTab}
+          onClick={setCurrentBottomTab}
+        />
       ) : (
         <ChallengeReviewBottomNavigation onClick={setCurrentBottomTab} />
       )}

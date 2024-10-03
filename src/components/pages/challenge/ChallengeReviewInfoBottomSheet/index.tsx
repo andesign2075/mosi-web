@@ -7,13 +7,23 @@ import ChallengeSummarySection from '../ChallengeSummarySection';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-review-info-bottomsheet.module.scss';
+import { useGetChallengeDetail } from '@/queries/challenge';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
-const ChallengeReviewInfoBottomSheet: React.FC<{
+interface Props {
+  id: string;
   currentSection: 'INFO' | 'CONTENT';
   onClick: React.Dispatch<React.SetStateAction<'CONTENT' | 'INFO' | undefined>>;
-}> = ({ currentSection, onClick }) => {
+}
+const ChallengeReviewInfoBottomSheet = ({ id, currentSection, onClick }: Props) => {
   const windowSize = useWindowSize();
+
+  const { data } = useGetChallengeDetail(id);
+  const detailData = data?.data[0];
+
+  if (!detailData) {
+    return null;
+  }
 
   if (!windowSize) {
     return null;
@@ -55,7 +65,15 @@ const ChallengeReviewInfoBottomSheet: React.FC<{
               </Text.Body>
             </div>
           ) : (
-            <ChallengeSummarySection />
+            <ChallengeSummarySection
+              thumbnailImageUrl={detailData.thumbnailImageUrl}
+              title={detailData.title}
+              periodWeeks={detailData.periodWeeks}
+              weeklyFrequency={detailData.weeklyFrequency}
+              startDate={detailData.startDate}
+              endDate={detailData.endDate}
+              participantCount={detailData.participantCount}
+            />
           )}
         </div>
       </div>
