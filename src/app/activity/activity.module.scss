@@ -1,7 +1,7 @@
 @import '@/styles/ui/';
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, $GRAY_900 40%, $GRAY_800 100%);
 }
 .inner__container {

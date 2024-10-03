@@ -13,7 +13,9 @@ const ProceedingChallengeTemplate = () => {
       <Text.Title className={styles.section__title} variant={18}>
         참가한 챌린지
       </Text.Title>
-      <ChallengeInfoCard />
+      <div className={styles.section_content_container}>
+        {data?.data.map((ele) => <ChallengeInfoCard data={ele} key={ele.id} />)}
+      </div>
     </div>
   );
 };
