@@ -2,7 +2,7 @@ import { Nullable } from '../common';
 
 export interface ChallengeData {
   id: number;
-  thumbnailImageUrl: Nullable<string>;
+  thumbnailImageUrl: string;
   introVideoUrl: Nullable<string>;
   title: string;
   weeklyFrequency: number;
