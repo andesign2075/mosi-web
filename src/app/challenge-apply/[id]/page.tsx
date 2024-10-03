@@ -6,6 +6,7 @@ import { ChallengeSummarySection } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import React from 'react';
 import styles from './challenge-apply.module.scss';
+import { useGetChallengeDetail } from '@/queries/challenge';
 import usePostApplyChallenge from '@/queries/activity/usePostApplyChallenge';
 
 interface Props {
@@ -13,16 +14,37 @@ interface Props {
     id: string;
   };
 }
+
+/**
+ * @name ChallengeApply
+ * @description 참여하기 페이지 (예치금 설정, 결제)
+ */
 const ChallengeApply: NextPage<Props> = ({ params }) => {
+  const { data } = useGetChallengeDetail(params.id);
+
+  const detailData = data?.data[0];
+
   const postApplyChallengeMutation = usePostApplyChallenge({
-    onSuccess: () => window.location.reload(),
+    onSuccess: () => null,
   });
+
+  if (!detailData) {
+    return null;
+  }
 
   return (
     <>
       <Header variant="light" headerTitle="참가하기" />
       <div className={styles.container}>
-        <ChallengeSummarySection />
+        <ChallengeSummarySection
+          thumbnailImageUrl={detailData.thumbnailImageUrl}
+          title={detailData.title}
+          periodWeeks={detailData.periodWeeks}
+          weeklyFrequency={detailData.weeklyFrequency}
+          startDate={detailData.startDate}
+          endDate={detailData.endDate}
+          participantCount={detailData.participantCount}
+        />
         <div className={styles.divider} />
         <section className={styles.price__info__section}>
           <Text.Title variant={18}>도전 금액 설정</Text.Title>

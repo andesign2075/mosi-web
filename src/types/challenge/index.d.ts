@@ -23,7 +23,7 @@ export interface ChallengeDetailData {
   periodWeeks: number;
   prizeAmount: number;
   contents: Nullable<string>;
-  participantCount: Nullable<number>;
+  participantCount: number;
   startDate: string;
   endDate: string;
 }

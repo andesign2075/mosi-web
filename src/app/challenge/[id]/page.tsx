@@ -62,7 +62,7 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
           <Text.Title variant={18} className={styles.section__title}>
             챌린지 정보
           </Text.Title>
-          <JoinedCountBadge count={12} />
+          <JoinedCountBadge count={detailData.participantCount} />
           <div className={styles.info__row__wrapper}>
             <ChallengeInfoRow label="조건" value={`주${detailData.weeklyFrequency}회`} />
             <ChallengeInfoRow label="기간" value={`${detailData.periodWeeks}주동안(시작일 기준)`} />
