@@ -16,7 +16,7 @@ export interface ChallengeData {
 
 export interface ChallengeDetailData {
   id: number;
-  thumbnailImageUrl: Nullable<string>;
+  thumbnailImageUrl: string;
   introVideoUrl: Nullable<string>;
   title: string;
   weeklyFrequency: number;

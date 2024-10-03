@@ -29,7 +29,6 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
   const { data } = useGetChallengeDetail(params.id);
 
   const detailData = data?.data[0];
-  console.log(detailData);
 
   if (!detailData) {
     return null;
@@ -47,7 +46,14 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
       />
       <div className={styles.container}>
         <div className={styles.thumbnail__wrapper}>
-          <Image width={0} height={0} sizes="100vw" className={styles.thumbnail} src={MOCK_DATA.thumbnail} alt={''} />
+          <Image
+            width={0}
+            height={0}
+            sizes="100vw"
+            className={styles.thumbnail}
+            src={detailData.thumbnailImageUrl}
+            alt={''}
+          />
           <Text.Title variant={24} className={styles.title}>
             {detailData.title}
           </Text.Title>
