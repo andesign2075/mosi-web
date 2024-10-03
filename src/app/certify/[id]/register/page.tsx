@@ -7,6 +7,10 @@ import { FilledCircleIcon } from '@/assets/icons';
 import { NextPage } from 'next';
 import styles from './register.module.scss';
 
+/**
+ * @name CertifyRegister
+ * @description  인증하기 페이지
+ */
 const CertifyRegister: NextPage = () => {
   const [selectedFile, setSelectedFile] = useState<File>();
 
@@ -21,7 +25,17 @@ const CertifyRegister: NextPage = () => {
 
   return (
     <>
-      <Header variant="dark" headerTitle="인증하기" />
+      <Header
+        variant="dark"
+        headerTitle="인증하기"
+        headerRight={
+          <button>
+            <Text.Body variant={16} className={styles.header_save_btn}>
+              저장
+            </Text.Body>
+          </button>
+        }
+      />
       <div className={styles.container}>
         <div className={styles.inner_top}>
           {selectedFile ? (
