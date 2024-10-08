@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { NextPage } from 'next';
 import styles from './challenge.module.scss';
 import { useGetChallengeDetail } from '@/queries/challenge';
+import useGetChallengeReview from '@/queries/review/useGetChallengeReview';
 import { useRouter } from 'next/navigation';
 
 const MOCK_DATA = {
@@ -27,6 +28,8 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
   const [isDetailOpen, setIsDetailOpen] = useState<boolean>(false);
 
   const { data } = useGetChallengeDetail(params.id);
+
+  const { data: reviewData } = useGetChallengeReview({ challengeId: params.id });
 
   const detailData = data?.data[0];
 
@@ -79,17 +82,19 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
             </Text.Title>
           </div>
           <div className={styles.review__container}>
-            <Image
-              width={135}
-              height={205}
-              sizes="100vw"
-              className={styles.review__img}
-              src={MOCK_DATA.thumbnail}
-              alt={'참가자리뷰'}
-            />
+            {reviewData?.data.map((ele) => (
+              <Image
+                width={135}
+                height={205}
+                sizes="100vw"
+                className={styles.review__img}
+                src={ele.imageUrl}
+                alt={'참가자리뷰'}
+              />
+            ))}
           </div>
-          <button className={styles.review__button} onClick={() => router.push('/challenge-review')}>
-            <Text.Title variant={16}>리뷰 2,234개 모두 보기</Text.Title>
+          <button className={styles.review__button} onClick={() => router.push(`/challenge/${params.id}/review`)}>
+            <Text.Title variant={16}>리뷰 {reviewData?.totalElements}개 모두 보기</Text.Title>
           </button>
         </section>
         <div className={styles.divider} />
