@@ -1,0 +1,31 @@
+.container {
+}
+.title_row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 16px;
+
+  color: $GRAY_WHITE;
+}
+.content_container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: $GRAY_800;
+  padding: 16px;
+}
+.noti_row {
+  display: flex;
+  color: $GRAY_WHITE;
+  gap: 10px;
+
+  > div {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

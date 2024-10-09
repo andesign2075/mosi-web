@@ -60,6 +60,10 @@ a {
   text-decoration: none;
 }
 
+em {
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

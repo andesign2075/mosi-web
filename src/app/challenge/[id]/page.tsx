@@ -6,8 +6,11 @@ import { Header, Text } from '@/components/common';
 import React, { useState } from 'react';
 
 import COLORS from '@/styles/ui/_theme.module.scss';
+import ChallengeDetailRefundSection from '@/components/pages/challenge/detail/ChallengeDetailRefundSection';
 import Image from 'next/image';
+import Link from 'next/link';
 import { NextPage } from 'next';
+import NotiListSection from '@/components/pages/challenge/detail/NotiListSection';
 import styles from './challenge.module.scss';
 import { useGetChallengeDetail } from '@/queries/challenge';
 import useGetChallengeReview from '@/queries/review/useGetChallengeReview';
@@ -84,6 +87,7 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
           <div className={styles.review__container}>
             {reviewData?.data.map((ele) => (
               <Image
+                key={ele.id}
                 width={135}
                 height={205}
                 sizes="100vw"
@@ -120,6 +124,15 @@ const ChallengeDetailPage: NextPage<Props> = ({ params }) => {
           <Text.Body variant={16}>{detailData.contents}</Text.Body>
         </section>
         <div className={styles.divider} />
+        <ChallengeDetailRefundSection />
+        <div className={styles.divider} />
+
+        <Link href={'#'} className={styles.cs_btn_row}>
+          <Text.Body variant={16}>1:1 문의</Text.Body>
+          <AngleIcon fill={COLORS.GRAY_WHITE} width={24} height={24} transform="rotate(-90)" />
+        </Link>
+
+        <NotiListSection />
       </div>
       <div className={styles.cta__container}>
         <button className={styles.cta__button} onClick={() => router.push(`/challenge-apply/${params.id}`)}>

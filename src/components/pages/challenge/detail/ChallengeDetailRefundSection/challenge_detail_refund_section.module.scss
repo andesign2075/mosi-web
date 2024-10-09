@@ -1,0 +1,101 @@
+.container {
+  padding: 0 16px;
+}
+.title {
+  margin-bottom: 12px;
+  color: $GRAY_WHITE;
+}
+.tabel_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.table_row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.label {
+  max-width: 130px;
+  width: 100%;
+  color: $GRAY_WHITE;
+  > em {
+    color: $SEMENTIC_PRIMARY;
+  }
+}
+.value {
+  flex: 1;
+  padding: 8px 10px;
+  background: rgba(65, 65, 65, 0.6);
+  border-radius: 4px;
+  > p {
+    color: $GRAY_300;
+  }
+}
+
+.graph_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 23px;
+  margin-top: 24px;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    > p {
+      height: 21px;
+      color: $GRAY_WHITE;
+      &.add_height_text {
+        color: $SEMENTIC_PRIMARY;
+      }
+    }
+  }
+}
+.graph_background {
+  border-radius: 4px;
+  width: 28px;
+  height: 103px;
+  background-color: #d9d9d9;
+  display: flex;
+  align-items: flex-end;
+}
+.graph_inner {
+  border-radius: 4px;
+  background-color: $SEMENTIC_PRIMARY;
+  width: 28px;
+
+  &.add_height_graph_inner {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+.add_height_graph_background {
+  border-radius: 4px;
+  width: 28px;
+  height: 120px;
+  background-color: #ffd337;
+  display: flex;
+  align-items: flex-end;
+}
+
+.noti_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.noti_row {
+  display: flex;
+  color: $GRAY_WHITE;
+  gap: 10px;
+
+  > div {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

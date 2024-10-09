@@ -123,3 +123,11 @@
   padding: 0 16px;
   color: $GRAY_WHITE;
 }
+
+.cs_btn_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  color: $GRAY_WHITE;
+  border-bottom: 1px solid $GRAY_800;
+}
