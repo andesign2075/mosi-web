@@ -1,4 +1,4 @@
-MOSI WEB Project
+MOSI WEB
 ## Getting Started
 
 First, run the development server:
