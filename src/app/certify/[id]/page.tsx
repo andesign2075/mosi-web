@@ -10,14 +10,14 @@ import styles from './certify-detail.module.scss';
 import { useGetChallengeDetail } from '@/queries/challenge';
 
 interface Props {
-  id: string;
+  params: { id: string };
 }
 
-const CertifyDetail = ({ id }: Props) => {
+const CertifyDetail = ({ params }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { data } = useGetChallengeDetail(id);
+  const { data } = useGetChallengeDetail(params.id);
   const detailData = data?.data[0];
 
   if (!detailData) {
@@ -46,7 +46,7 @@ const CertifyDetail = ({ id }: Props) => {
               <Text.Title variant={14}>인증현황</Text.Title>
             </button>
           </div>
-          <CertifyCard onClick={() => router.push(`${pathname}/register`)} />
+          <CertifyCard onClick={() => router.push(`${pathname}/register`)} data={undefined} />
         </section>
       </div>
     </>

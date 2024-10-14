@@ -18,8 +18,10 @@ const MOCK_IMAGE_DATA = '';
 
 interface Props {
   onClick: () => void;
+  data: any;
 }
-const CertifyCard = ({ onClick }: Props) => {
+const CertifyCard = ({ onClick, data }: Props) => {
+  console.log(data);
   return (
     <div className={styles.container}>
       <div>

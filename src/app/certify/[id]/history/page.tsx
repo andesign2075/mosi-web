@@ -10,7 +10,7 @@ import { CertifyCard } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import dayjs from 'dayjs';
 import styles from './certify-detail-history.module.scss';
-import useGetCertifyHistory from '@/queries/activity/useGetCertifyHistory';
+import useGetCertifyHistory from '@/queries/review/useGetChallengeReview';
 
 const MOCK_DATA = {
   progress: 20,
@@ -30,7 +30,6 @@ const CertifyDetailHistory: NextPage<Props> = ({ params }) => {
   const [value] = useState(dayjs().format());
 
   const { data } = useGetCertifyHistory({ challengeId: params.id });
-  console.log(data);
 
   return (
     <>
@@ -56,7 +55,7 @@ const CertifyDetailHistory: NextPage<Props> = ({ params }) => {
               <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
             </div>
             <div>
-              <Text.Body variant={18}>내 인증 회수</Text.Body>
+              <Text.Body variant={18}>남은 회수</Text.Body>
               <Text.Title variant={18}>{MOCK_DATA.certifyCount}</Text.Title>
             </div>
           </div>
@@ -83,7 +82,7 @@ const CertifyDetailHistory: NextPage<Props> = ({ params }) => {
           </div>
         </section>
         <section className={styles.certify__card__section}>
-          <CertifyCard onClick={() => null} />
+          {data?.data.map((ele) => <CertifyCard data={ele} onClick={() => null} />)}
         </section>
       </div>
     </>
