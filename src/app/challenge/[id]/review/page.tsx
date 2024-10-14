@@ -1,14 +1,20 @@
 'use client';
 
-import { ChallengeReviewMiniCard, JoinedCountBadge } from '@/components/pages/challenge';
-import { Header, Text } from '@/components/common';
+import { ChallengeReviewBottomNavigation, ChallengeReviewSummaryInfo } from '@/components/pages/challenge';
+import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+import COLORS from '@/styles/ui/_theme.module.scss';
+import { ChallengeReviewData } from '@/types/review';
+import ChallengeReviewInfoBottomSheet from '@/components/pages/challenge/ChallengeReviewInfoBottomSheet';
+import { EllipsisVerticalIcon } from '@/assets/icons';
+import { Header } from '@/components/common';
 import Image from 'next/image';
 import { NextPage } from 'next';
-import React from 'react';
-import styles from './challenge-review.module.scss';
+import styles from './challenge-review-detail.module.scss';
 import { useGetChallengeDetail } from '@/queries/challenge';
 import useGetChallengeReview from '@/queries/review/useGetChallengeReview';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface Props {
   params: {
@@ -16,47 +22,62 @@ interface Props {
   };
 }
 
-const ChallengeReview: NextPage<Props> = ({ params }) => {
+const ChallengeReviewDetail: NextPage<Props> = ({ params }) => {
   const { data: challengeData } = useGetChallengeDetail(params.id);
-
   const { data: reviewData } = useGetChallengeReview({ challengeId: params.id });
 
-  if (!challengeData) {
+  const windowSize = useWindowSize();
+  const [currentBottomTab, setCurrentBottomTab] = useState<'CONTENT' | 'INFO'>();
+  const [currentReview, setCurrentReview] = useState<ChallengeReviewData>();
+
+  const imgHeight = windowSize ? windowSize.height - 64 - 74 : 0;
+
+  useEffect(() => {
+    setCurrentReview(reviewData?.data[0]);
+  }, []);
+
+  if (!windowSize || !challengeData || !reviewData || !currentReview) {
     return null;
   }
-
   return (
     <>
-      <Header headerTitle="리뷰 모두 보기" />
-      <div className={styles.container}>
-        <div className={styles.challenge__info__container}>
-          <Image
-            className={styles.challenge__info__img}
-            src={challengeData?.data[0].thumbnailImageUrl}
-            width={48}
-            height={48}
-            alt="카드 이미지"
-          />
-          <div className={styles.challenge__info__right}>
-            <Text.Body variant={16} className={styles.challenge__info__title}>
-              {challengeData?.data[0].title}
-            </Text.Body>
-            <JoinedCountBadge count={challengeData?.data[0].participantCount} />
-          </div>
-        </div>
-        <section className={styles.review__section}>
-          <Text.Title variant={18} className={styles.review__section__label}>
-            리뷰 ({reviewData?.totalElements})
-          </Text.Title>
-          <div className={styles.review__list__container}>
-            <div className={styles.review__list__inner__container}>
-              {reviewData?.data.map((ele) => <ChallengeReviewMiniCard data={ele} />)}
-            </div>
-          </div>
-        </section>
-      </div>
+      <Header
+        headerRight={
+          <button>
+            <EllipsisVerticalIcon fill={COLORS.GRAY_WHITE} />
+          </button>
+        }
+      />
+
+      <Swiper
+        direction={'vertical'}
+        pagination={{
+          clickable: true,
+        }}
+        spaceBetween={0}
+        className={`mySwiper ${styles.container}`}
+        style={{ height: imgHeight }}
+        onSlideChange={(e) => setCurrentReview(reviewData.data[e.activeIndex])}
+      >
+        {reviewData?.data.map((ele) => (
+          <SwiperSlide key={ele.id} className={`${styles.image__wrapper}`}>
+            <Image src={ele.imageUrl} layout="fill" className={styles.thumbnail} alt={'챌린지 리뷰 이미지'} />
+            {!currentBottomTab ? <ChallengeReviewSummaryInfo challenge={challengeData?.data[0]} review={ele} /> : null}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {currentBottomTab ? (
+        <ChallengeReviewInfoBottomSheet
+          currentSection={currentBottomTab}
+          onClick={setCurrentBottomTab}
+          challenge={challengeData?.data[0]}
+          review={currentReview}
+        />
+      ) : (
+        <ChallengeReviewBottomNavigation onClick={setCurrentBottomTab} />
+      )}
     </>
   );
 };
 
-export default ChallengeReview;
+export default ChallengeReviewDetail;

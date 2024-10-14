@@ -3,27 +3,22 @@
 import { FilmIcon, LogIcon } from '@/assets/icons';
 
 import COLORS from '@/styles/ui/_theme.module.scss';
+import { ChallengeDetailData } from '@/types/challenge';
+import { ChallengeReviewData } from '@/types/review';
 import ChallengeSummarySection from '../ChallengeSummarySection';
 import React from 'react';
 import { Text } from '@/components/common';
 import styles from './challenge-review-info-bottomsheet.module.scss';
-import { useGetChallengeDetail } from '@/queries/challenge';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface Props {
-  id: string;
   currentSection: 'INFO' | 'CONTENT';
   onClick: React.Dispatch<React.SetStateAction<'CONTENT' | 'INFO' | undefined>>;
+  challenge: ChallengeDetailData;
+  review: ChallengeReviewData;
 }
-const ChallengeReviewInfoBottomSheet = ({ id, currentSection, onClick }: Props) => {
+const ChallengeReviewInfoBottomSheet = ({ currentSection, onClick, challenge, review }: Props) => {
   const windowSize = useWindowSize();
-
-  const { data } = useGetChallengeDetail(id);
-  const detailData = data?.data[0];
-
-  if (!detailData) {
-    return null;
-  }
 
   if (!windowSize) {
     return null;
@@ -58,21 +53,18 @@ const ChallengeReviewInfoBottomSheet = ({ id, currentSection, onClick }: Props) 
         <div className={styles.inner__container}>
           {currentSection === 'CONTENT' ? (
             <div className={styles.content__tab__context}>
-              <Text.Title variant={16}>0702 건강을위한 걷기 참가하고 오운완~</Text.Title>
-              <Text.Body variant={16}>
-                어느덧 챌린지 3일차에요 처음엔 ~했었는데 지금은 익숙해져서 루틴이 잡혔습니다 이대로면 챌린지 무조건
-                성공할거 같아요! p.s 한강 뚝섬유원지 러닝 정말 좋으니 한번 방문해보세요
-              </Text.Body>
+              <Text.Title variant={16}>{review.title}</Text.Title>
+              <Text.Body variant={16}>{review.contents}</Text.Body>
             </div>
           ) : (
             <ChallengeSummarySection
-              thumbnailImageUrl={detailData.thumbnailImageUrl}
-              title={detailData.title}
-              periodWeeks={detailData.periodWeeks}
-              weeklyFrequency={detailData.weeklyFrequency}
-              startDate={detailData.startDate}
-              endDate={detailData.endDate}
-              participantCount={detailData.participantCount}
+              thumbnailImageUrl={challenge.thumbnailImageUrl}
+              title={challenge.title}
+              periodWeeks={challenge.periodWeeks}
+              weeklyFrequency={challenge.weeklyFrequency}
+              startDate={challenge.startDate}
+              endDate={challenge.endDate}
+              participantCount={challenge.participantCount}
             />
           )}
         </div>
