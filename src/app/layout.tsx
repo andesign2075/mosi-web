@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossOrigin="anonymous"></script>
         <link rel="shortcut icon" href="#" />
         <link
