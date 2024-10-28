@@ -2,11 +2,11 @@
 
 import 'react-calendar/dist/Calendar.css';
 
+import { CertifyAvailableButton, CertifyCard } from '@/components/pages/certify';
 import { Header, Text } from '@/components/common';
 import React, { useState } from 'react';
 
 import Calendar from 'react-calendar';
-import { CertifyCard } from '@/components/pages/challenge';
 import { NextPage } from 'next';
 import dayjs from 'dayjs';
 import styles from './certify-detail.module.scss';
@@ -81,6 +81,7 @@ const CertifyDetailHistory: NextPage<Props> = ({ params }) => {
             />
           </div>
         </section>
+        <CertifyAvailableButton />
         <section className={styles.certify__card__section}>
           {data?.data.map((ele) => <CertifyCard data={ele} onClick={() => null} />)}
         </section>

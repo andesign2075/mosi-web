@@ -1,6 +1,5 @@
 export { default as ChallengeInfoCard } from './ChallengeInfoCard';
 export { default as JoinedCountBadge } from './JoinedCountBadge';
-export { default as CertifyCard } from './CertifyCard';
 export { default as ChallengeInfoRow } from './ChallengeInfoRow';
 export { default as ChallengeSummarySection } from './ChallengeSummarySection';
 export { default as CompletedChallengeTemplate } from './CompletedChallengeTemplate';
